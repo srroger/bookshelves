@@ -15,6 +15,16 @@ import { AuthService } from './services/auth.service';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
+import {Routes, RouterModule} from '@angular/router';
+
+const appRoutes: Routes = [
+  {  path: 'auth/signup', component: SignupComponent },
+  {  path: 'auth/signin', component: SigninComponent },
+  {  path: 'books', component: BookListComponent },
+  {  path: 'books/new', component: BookFormComponent },
+  {  path: 'books/view/:id', component: SingleBookComponent }
+];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +39,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [
     AuthService,
